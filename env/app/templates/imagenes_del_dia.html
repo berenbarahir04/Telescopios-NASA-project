@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes del Dia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <nav>
+        <button onclick="window.location.href='/'">Inicio</button>
+        <button onclick="window.location.href='/Imagenes_del_Dia'">Imagenes del Dia</button>
+        <button onclick="window.location.href='/historia'">Historia</button>
+        <button onclick="window.location.href='/futuro'">Planes Futuros</button>
+        <button onclick="window.location.href='/exoplanetas'">Exoplanetas</button>
+    </nav>
+    <div>
+        <h1>Imagenes del Dia</h1>
+        <ul>
+            {% for item in news %}
+            <li>
+                <h2>{{ item.title }}</h2>
+                <img src="{{ item.url }}" alt="{{ item.title }}" style="max-width: 100%;">
+                <p>{{ item.explanation }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
